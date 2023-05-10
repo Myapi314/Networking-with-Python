@@ -27,8 +27,12 @@
 # Useful Websites
 
 <!-- {Make a list of websites that you found helpful in this project} -->
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+
+<!-- Used for initial client/server setup -->
+* [Digital Ocean - Python Socket Programming](https://www.digitalocean.com/community/tutorials/python-socket-programming-server-client) 
+* [Spotify for Developers](https://developer.spotify.com/documentation/web-api)
+* [How To Use Spotify's API with Python](https://www.youtube.com/watch?v=WAmEZBEeNmg)
+* [Geeks for Geeks - tkinter](https://www.geeksforgeeks.org/python-gui-tkinter/)
 
 # Future Work
 
