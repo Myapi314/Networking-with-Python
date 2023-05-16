@@ -18,13 +18,14 @@ def server_program():
         data = conn.recv(1024).decode()
 
         # remove if you do not want server to not quit when client connection closes
-        # if not data:
-        #     # if data is not received - break
-        #     break
+        if str(data) == 'xxxSHUTDOWNxxx':
+            # if data is not received - break
+            break
 
         
         print('From connected user: ' + str(data))
-        data = input(' -> ')
+        # data = input(' -> ')
+        data = '-> Server heard: ' + str(data)
         conn.send(data.encode())    # send data to the client
 
     conn.close()    # close the connection
