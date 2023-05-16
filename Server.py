@@ -25,7 +25,7 @@ def server_program():
         
         print('From connected user: ' + str(data))
         # data = input(' -> ')
-        data = '-> Server heard: ' + str(data)
+        data = '-> ' + str(data)
         conn.send(data.encode())    # send data to the client
 
     conn.close()    # close the connection

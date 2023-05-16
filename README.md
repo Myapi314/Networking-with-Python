@@ -33,6 +33,7 @@
 * [Spotify for Developers](https://developer.spotify.com/documentation/web-api)
 * [How To Use Spotify's API with Python](https://www.youtube.com/watch?v=WAmEZBEeNmg)
 * [Geeks for Geeks - tkinter](https://www.geeksforgeeks.org/python-gui-tkinter/)
+* [Custom Tkinter](https://medium.com/@fareedkhandev/modern-gui-using-tkinter-12da0b983e22)
 
 # Future Work
 
