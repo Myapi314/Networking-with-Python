@@ -51,7 +51,7 @@ class SpotifyService:
         # Build the request parameters
         base_url = self._domain + '/v1/search'
         headers = self.get_auth_header()
-        query = f'?q={artist_name}&type=artist&limit=1'  #artist,track for either or
+        query = f'?q={artist_name}&type=artist&limit=10'  #artist,track for either or
         query_url = base_url + query
 
         # Send the get request
@@ -67,13 +67,13 @@ class SpotifyService:
             return None
         
         # Return the first artist in array
-        return artists_found[0]
+        return artists_found
 
     def get_songs_by_artist(self, artist):
         """Return the albums by an artist"""
 
         # Search for the artist ID
-        artist_id = self.search_for_artist(artist)["id"]
+        artist_id = self.search_for_artist(artist)[0]["id"]
 
         # Set up request parameters
         base_url = self._domain + '/v1/artists/' + artist_id + '/albums'
@@ -94,8 +94,8 @@ class SpotifyService:
 def main():
     spotifyService = SpotifyService()
     # print(spotifyService.get_token())
-    # print(spotifyService.search_for_artist('Taylor Swift')["id"])
-    spotifyService.get_songs_by_artist('Taylor Swift')
+    print(spotifyService.search_for_artist(''))
+    # spotifyService.get_songs_by_artist('Taylor Swift')
 
 if __name__=='__main__':
     main()
