@@ -69,11 +69,11 @@ class SpotifyService:
         # Return the first artist in array
         return artists_found
 
-    def get_songs_by_artist(self, artist):
+    def get_songs_by_artist(self, artist_id):
         """Return the albums by an artist"""
 
         # Search for the artist ID
-        artist_id = self.search_for_artist(artist)[0]["id"]
+        # artist_id = self.search_for_artist(artist)[0]["id"]
 
         # Set up request parameters
         base_url = self._domain + '/v1/artists/' + artist_id + '/albums'
@@ -88,14 +88,35 @@ class SpotifyService:
         json_res = json.loads(result.content)
         albums = json_res['items']
 
-        print(albums[0]['name'])
+        # print(albums[0]['name'])
+        return albums
+    
+    def get_artist_top_tracks(self, artist_id):
+        """Return top tracks by artist. """
+        query_url = self._domain + '/v1/artists/' + artist_id + '/top-tracks?market=US'
+        headers = self.get_auth_header()
+
+        result = get(query_url, headers=headers)
+
+        json_res = json.loads(result.content)
+        tracks = json_res['tracks']
+        return tracks
+
+    def get_artist_url(self, artist_id):
+        """Return the url to the artist's spotify page. """
+        query_url = self._domain + '/v1/artists/' + artist_id
+        headers = self.get_auth_header()
+        result = get(query_url, headers=headers)
+        json_res = json.loads(result.content)
+        url = json_res['external_urls']['spotify']
+        return url
 
 
 def main():
     spotifyService = SpotifyService()
     # print(spotifyService.get_token())
-    print(spotifyService.search_for_artist(''))
-    # spotifyService.get_songs_by_artist('Taylor Swift')
+    # print(spotifyService.search_for_artist('Taylor Swift'))
+    print(spotifyService.get_artist_url('0TnOYISbd1XYRBk9myaseg'))
 
 if __name__=='__main__':
     main()
